@@ -3,6 +3,7 @@ run-name: Build, run tests, check formatting
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   test:
@@ -21,3 +22,12 @@ jobs:
         run: |
           PATH="$PWD/build:$PWD/scripts:$PATH"
           make -j"$(nproc)" -O -k --no-print-directory -f check.mk
+
+  test-macos-26:
+    runs-on: "macos-26"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          cmake -B build -DCMAKE_BUILD_TYPE=Debug
+          cmake --build build -j"$(nproc)"

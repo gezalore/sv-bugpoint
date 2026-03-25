@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: Apache-2.0
 #include "SvBugpoint.hpp"
 #include <fcntl.h>
+#include <signal.h>
 #include <slang/syntax/SyntaxTree.h>
 #include <slang/text/SourceManager.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <unistd.h>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
