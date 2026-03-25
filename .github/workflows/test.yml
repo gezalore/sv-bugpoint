@@ -29,5 +29,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build
         run: |
-          cmake -B build -DCMAKE_BUILD_TYPE=Debug
-          cmake --build build --verbose
+          cmake -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
+          cmake --build build -j"$(nproc)"
